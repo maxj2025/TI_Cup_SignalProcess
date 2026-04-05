@@ -1,0 +1,6 @@
+#ifndef H743_HAL_TASKS_H
+#define H743_HAL_TASKS_H
+#include "bsp.system.h"
+
+
+#endif  //H743_HAL_TASKS_H

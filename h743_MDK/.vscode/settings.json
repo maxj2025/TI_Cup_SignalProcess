@@ -1,0 +1,8 @@
+{
+    "debug.hideSlowPreLaunchWarning": true,
+    "debug.showInStatusBar": "never",
+    "clangd.arguments": [
+        "--compile-commands-dir=c:\\Users\\47306\\Desktop\\stm32 project\\h743_hal\\MDK-ARM\\out\\h743_hal\\h743_hal"
+    ],
+    "cmake.sourceDirectory": "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp"
+}

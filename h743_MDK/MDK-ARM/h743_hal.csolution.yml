@@ -1,0 +1,10 @@
+solution:
+  created-by: uv2csolution@1.6.0
+  created-for: CMSIS-Toolbox@2.7.0
+  compiler: AC6
+  target-types:
+    - type: h743_hal
+      device: STM32H743VITx
+      optimize: debug
+  projects:
+    - project: h743_hal.cproject.yml

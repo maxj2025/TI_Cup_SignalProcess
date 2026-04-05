@@ -1,0 +1,63 @@
+# ninja log v7
+12	147	7967528905587236	CMakeFiles/database	73a34604363815fc
+12	147	7967528905587236	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/1/CMakeFiles/database	73a34604363815fc
+11	1315	7960589977815021	CMakeFiles/Group_Application_MDK-ARM.dir/D_/Desktop_Floder/stm32_project/h743_MDK/MDK-ARM/startup_stm32h743xx.o	1f6c96b2fd2b4e2c
+128	1421	7960589978986512	CMakeFiles/Group_Application_User_Core.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/dma.o	b3dda7b57116179c
+252	1507	7960589980232027	CMakeFiles/Group_Application_User_Core.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/stm32h7xx_hal_msp.o	67e1be40534450c
+519	1549	7960589982900390	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.o	1f878690dbfb9d64
+69	1602	7960589978393857	CMakeFiles/Group_Application_User_Core.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/gpio.o	3e443790169e1f19
+816	1646	7960589985870919	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.o	f860ed0d5d8b743f
+221	1686	7960589979911996	CMakeFiles/Group_Application_User_Core.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/stm32h7xx_it.o	19ffd7aabe3a5df8
+190	1751	7960589979603401	CMakeFiles/Group_Application_User_Core.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/usart.o	d64afc39a5850f9f
+921	1806	7960589986915687	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.o	696ce19e2175175e
+751	1853	7960589985212969	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o	a5772c148184dadd
+352	1904	7960589981231287	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o	2feb5b0ecd5e702b
+1023	1949	7960589987941244	CMakeFiles/Group_Drivers_CMSIS.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/system_stm32h7xx.o	452bb1878bfae5b9
+717	1984	7960589984879947	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o	cbf9bf4f46f08b24
+617	1985	7960589983880672	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.o	77e53d5296edf71e
+652	1986	7960589984231530	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.o	92dd885d2e9c4219
+385	1986	7960589981562122	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o	279e897a2822e344
+10	208	7960590993536757	CMakeFiles/Group_Application_User_Core.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/main.o	dae520912e17ab7c
+987	1988	7960589987575050	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.o	3fded3938fd66a76
+97	1989	7960589978625161	CMakeFiles/Group_Application_User_Core.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/adc.o	ca3eadfb4274f520
+487	1990	7960589982574572	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o	980f9dc169c0257a
+1061	1991	7960589988314449	CMakeFiles/Group_Tasks.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Tasks/Tasks.o	9baaa60d1d9ce0c6
+852	1992	7960589986224904	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.o	948083c3287d72a7
+453	1992	7960589982242401	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.o	5ab0445f47597f13
+583	1993	7960589983539362	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.o	485f58ba475594cb
+318	1994	7960589980891670	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.o	52aa4308825dd5cf
+285	1995	7960589980563513	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.o	ff67514d867524d5
+158	1996	7960589979293812	CMakeFiles/Group_Application_User_Core.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Core/Src/tim.o	84deb0e4e8794186
+419	1997	7960589981896951	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.o	4096e54237f777d9
+684	1998	7960589984552295	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o	5ccd6a387dde47e3
+1101	1999	7960589988720752	CMakeFiles/Group_SignalProsess.dir/D_/Desktop_Floder/stm32_project/h743_MDK/SignalProcess/fftana.o	2188c620b3e16854
+551	2000	7960589983222238	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o	e8117e7b2aef08f1
+955	2001	7960589987260481	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.o	b87771be35efff54
+1647	2001	7960589994173546	CMakeFiles/Group_long_fft.dir/D_/Desktop_Floder/stm32_project/h743_MDK/SignalProcess/long_fft/arm_bitreversal2_extra.o	22f6927a39c83781
+1687	2004	7960589994576899	CMakeFiles/Group_long_fft.dir/D_/Desktop_Floder/stm32_project/h743_MDK/SignalProcess/long_fft/arm_cfft_f32_extra.o	5af7c30cde4b1fa1
+887	2016	7960589986575499	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.o	def279cb4692b7cb
+1428	2017	7960589991995012	CMakeFiles/Group_MyDrive.dir/D_/Desktop_Floder/stm32_project/h743_MDK/MyDrive/AD9959.o	2969ed34728caa03
+785	2018	7960589985558617	CMakeFiles/Group_Drivers_STM32H7xx_HAL_Driver.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.o	cb447598d36efcb2
+1316	2019	7960589990871224	CMakeFiles/Group_MyDrive.dir/D_/Desktop_Floder/stm32_project/h743_MDK/MyDrive/AD9910.o	5a0df472ff815dc1
+1755	2059	7960589995259412	CMakeFiles/Group_long_fft.dir/D_/Desktop_Floder/stm32_project/h743_MDK/SignalProcess/long_fft/arm_cfft_init_f32_extra.o	c732a4243c0275c0
+1854	2092	7960589996253132	CMakeFiles/Group_long_fft.dir/D_/Desktop_Floder/stm32_project/h743_MDK/SignalProcess/long_fft/arm_const_structs_extra.o	726decab92afdced
+1603	2104	7960589993739951	CMakeFiles/Group_MyDrive.dir/D_/Desktop_Floder/stm32_project/h743_MDK/MyDrive/delay.o	b0bd8272538cd8f1
+1550	2109	7960589993213762	CMakeFiles/Group_MyDrive.dir/D_/Desktop_Floder/stm32_project/h743_MDK/MyDrive/HMI.o	ff761b8876b29058
+1508	2117	7960589992791007	CMakeFiles/Group_MyDrive.dir/D_/Desktop_Floder/stm32_project/h743_MDK/MyDrive/Get_Freq.o	6db65071ea3483e5
+1905	2130	7960589996759164	CMakeFiles/Group_long_fft.dir/D_/Desktop_Floder/stm32_project/h743_MDK/SignalProcess/long_fft/arm_rfft_fast_f32_extra.o	4bf4f7835c871d81
+1949	2141	7960589997202521	CMakeFiles/Group_long_fft.dir/D_/Desktop_Floder/stm32_project/h743_MDK/SignalProcess/long_fft/arm_rfft_fast_init_f32_extra.o	79b57069cb5365f9
+1807	2299	7960589995776435	CMakeFiles/Group_long_fft.dir/D_/Desktop_Floder/stm32_project/h743_MDK/SignalProcess/long_fft/arm_common_tables_extra.o	f43014ad136ce55f
+182	294	7960591788990298	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/out/h743_hal/h743_hal/h743_hal.axf	d6ec516e49ce8387
+23	2117	7967529109695333	build.ninja	5ac7cd9674a14237
+9	181	7960591787265512	CMakeFiles/Group_Tasks.dir/D_/Desktop_Floder/stm32_project/h743_MDK/Tasks/sample_app_task_scheduler.o	5d868033fb9b9402
+9	2499	7967529109695333	build.ninja	5ac7cd9674a14237
+11	134	7967529110094905	CMakeFiles/database	73a34604363815fc
+11	134	7967529110094905	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/1/CMakeFiles/database	73a34604363815fc
+7	124	7967529131475078	CMakeFiles/database	73a34604363815fc
+7	124	7967529131475078	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/1/CMakeFiles/database	73a34604363815fc
+9	126	7967529389351685	CMakeFiles/database	73a34604363815fc
+9	126	7967529389351685	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/1/CMakeFiles/database	73a34604363815fc
+11	152	7967557943192067	CMakeFiles/database	73a34604363815fc
+11	152	7967557943192067	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/1/CMakeFiles/database	73a34604363815fc
+22	143	7968233389944596	CMakeFiles/database	73a34604363815fc
+22	143	7968233389944596	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/1/CMakeFiles/database	73a34604363815fc

@@ -1,0 +1,311 @@
+build:
+  generated-by: csolution version 2.13.0+p3-g40b6564e
+  solution: ../../../h743_hal.csolution.yml
+  project: ../../../h743_hal.cproject.yml
+  context: h743_hal+h743_hal
+  compiler: AC6
+  device: STMicroelectronics::STM32H743VITx
+  device-pack: Keil::STM32H7xx_DFP@3.1.1
+  device-books:
+    - name: ${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1/Documentation/DM00314099.pdf
+      title: STM32H742, STM32H743/753 and STM32H750 Reference Manual
+    - name: ${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1/Documentation/DS12110.pdf
+      title: STM32H742xI/G STM32H743xI/G Data Sheet
+    - name: ${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1/Documentation/DUI0646B_cortex_m7_dgug.pdf
+      title: Cortex-M7 Generic User Guide
+  dbgconf:
+    - file: ../../../.cmsis/h743_hal+h743_hal.dbgconf
+      version: 1.1.1
+      base: ../../../.cmsis/h743_hal+h743_hal.dbgconf.base@1.1.1
+      update: ../../../.cmsis/h743_hal+h743_hal.dbgconf.update@1.1.0
+      status: update suggested
+  processor:
+    endian: little
+    fpu: dp
+    core: Cortex-M7
+  packs:
+    - pack: ARM::CMSIS@5.9.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0
+    - pack: Keil::STM32H7xx_DFP@3.1.1
+      path: ${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1
+  optimize: debug
+  debug: on
+  misc:
+    ASM:
+      - -masm=auto
+    C:
+      - -std=c99
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wno-packed
+      - -Wno-missing-variable-declarations
+      - -Wno-missing-prototypes
+      - -Wno-missing-noreturn
+      - -Wno-sign-conversion
+      - -Wno-nonportable-include-path
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    CPP:
+      - -xc++
+      - -std=c++03
+      - -fno-exceptions
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wno-packed
+      - -Wno-missing-variable-declarations
+      - -Wno-missing-prototypes
+      - -Wno-missing-noreturn
+      - -Wno-sign-conversion
+      - -Wno-nonportable-include-path
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    Link:
+      - --library_type=microlib
+      - --map
+      - --load_addr_map_info
+      - --xref
+      - --callgraph
+      - --symbols
+      - --info sizes
+      - --info totals
+      - --info unused
+      - --info veneers
+      - --strict
+      - --summary_stderr
+      - --info summarysizes
+  define:
+    - USE_PWR_LDO_SUPPLY
+    - USE_HAL_DRIVER
+    - STM32H743xx
+    - ARM_MATH_CM7
+    - __FPU_PRESENT: 1
+    - __MICROLIB
+    - STM32H743xx
+    - _RTE_
+  define-asm:
+    - __MICROLIB
+    - STM32H743xx
+    - _RTE_
+  add-path:
+    - ../../../../Core/Inc
+    - ../../../../Drivers/STM32H7xx_HAL_Driver/Inc
+    - ../../../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
+    - ../../../../Drivers/CMSIS/Device/ST/STM32H7xx/Include
+    - ../../../../Drivers/CMSIS/Include
+    - ../../../../Hardware
+    - ../../../../Drivers/CMSIS/DSP/Include
+    - ../../../../SignalProcess
+    - ../../../../SignalProcess/long_fft
+    - ../../../../MyDrive
+    - ../../../../Tasks
+    - ../../../RTE/_h743_hal
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1/Drivers/CMSIS/Device/ST/STM32H7xx/Include
+  add-path-asm:
+    - ../../../RTE/_h743_hal
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1/Drivers/CMSIS/Device/ST/STM32H7xx/Include
+  output-dirs:
+    intdir: ../../../tmp
+    outdir: .
+    rtedir: ../../../RTE
+  output:
+    - type: elf
+      file: h743_hal.axf
+    - type: comp-db
+      file: compile_commands.json
+  components:
+    - component: ARM::CMSIS:CORE@5.6.0
+      condition: ARMv6_7_8-M Device
+      from-pack: ARM::CMSIS@5.9.0
+      selected-by: ARM::CMSIS:CORE
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+          category: include
+          version: 5.6.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include/tz_context.h
+          category: header
+          version: 5.6.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Template/ARMv8-M/main_s.c
+          category: sourceC
+          attr: template
+          version: 1.1.1
+          select: Secure mode 'main' module for ARMv8-M
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Template/ARMv8-M/tz_context.c
+          category: sourceC
+          attr: template
+          version: 1.1.1
+          select: RTOS Context Management (TrustZone for ARMv8-M)
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Documentation/Core/html/index.html
+          category: doc
+          version: 5.6.0
+  linker:
+    script: ../../../h743_hal_h743_hal.sct
+  groups:
+    - group: Application/MDK-ARM
+      files:
+        - file: ../../../startup_stm32h743xx.s
+          category: sourceAsm
+          misc:
+            ASM:
+              - -masm=auto
+    - group: Application/User/Core
+      files:
+        - file: ../../../../Core/Src/main.c
+          category: sourceC
+        - file: ../../../../Core/Src/gpio.c
+          category: sourceC
+        - file: ../../../../Core/Src/adc.c
+          category: sourceC
+        - file: ../../../../Core/Src/dma.c
+          category: sourceC
+        - file: ../../../../Core/Src/tim.c
+          category: sourceC
+        - file: ../../../../Core/Src/usart.c
+          category: sourceC
+        - file: ../../../../Core/Src/stm32h7xx_it.c
+          category: sourceC
+        - file: ../../../../Core/Src/stm32h7xx_hal_msp.c
+          category: sourceC
+    - group: Drivers/STM32H7xx_HAL_Driver
+      files:
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c
+          category: sourceC
+        - file: ../../../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c
+          category: sourceC
+    - group: Drivers/CMSIS
+      files:
+        - file: ../../../../Core/Src/system_stm32h7xx.c
+          category: sourceC
+    - group: Tasks
+      files:
+        - file: ../../../../Tasks/Tasks.c
+          category: sourceC
+        - file: ../../../../Tasks/Tasks.h
+          category: header
+    - group: SignalProsess
+      files:
+        - file: ../../../../SignalProcess/fftana.c
+          category: sourceC
+        - file: ../../../../SignalProcess/fftana.h
+          category: header
+        - file: ../../../../SignalProcess/hanning_window.h
+          category: header
+    - group: MyDrive
+      files:
+        - file: ../../../../MyDrive/AD9910.c
+          category: sourceC
+        - file: ../../../../MyDrive/AD9910.h
+          category: header
+        - file: ../../../../MyDrive/AD9959.c
+          category: sourceC
+        - file: ../../../../MyDrive/AD9959.h
+          category: header
+        - file: ../../../../MyDrive/bsp_system.h
+          category: header
+        - file: ../../../../MyDrive/delay.h
+          category: header
+        - file: ../../../../MyDrive/Get_Freq.c
+          category: sourceC
+        - file: ../../../../MyDrive/Get_Freq.h
+          category: header
+        - file: ../../../../MyDrive/HMI.c
+          category: sourceC
+        - file: ../../../../MyDrive/HMI.h
+          category: header
+        - file: ../../../../MyDrive/sys.h
+          category: header
+        - file: ../../../../MyDrive/delay.c
+          category: sourceC
+        - file: ../../../../MyDrive/global_types.h
+          category: header
+    - group: long_fft
+      files:
+        - file: ../../../../SignalProcess/long_fft/arm_bitreversal2_extra.c
+          category: sourceC
+        - file: ../../../../SignalProcess/long_fft/arm_cfft_f32_extra.c
+          category: sourceC
+        - file: ../../../../SignalProcess/long_fft/arm_cfft_init_f32_extra.c
+          category: sourceC
+        - file: ../../../../SignalProcess/long_fft/arm_common_tables_extra.c
+          category: sourceC
+        - file: ../../../../SignalProcess/long_fft/arm_common_tables_extra.h
+          category: header
+        - file: ../../../../SignalProcess/long_fft/arm_const_structs_extra.c
+          category: sourceC
+        - file: ../../../../SignalProcess/long_fft/arm_const_structs_extra.h
+          category: header
+        - file: ../../../../SignalProcess/long_fft/arm_cortexM7l_math.lib
+          category: library
+        - file: ../../../../SignalProcess/long_fft/arm_rfft_fast_f32_extra.c
+          category: sourceC
+        - file: ../../../../SignalProcess/long_fft/arm_rfft_fast_init_f32_extra.c
+          category: sourceC
+        - file: ../../../../SignalProcess/long_fft/extra_ffts.h
+          category: header
+  constructed-files:
+    - file: ../../../RTE/_h743_hal/RTE_Components.h
+      category: header
+  licenses:
+    - license: <unknown>
+      packs:
+        - pack: ARM::CMSIS@5.9.0
+      components:
+        - component: ARM::CMSIS:CORE@5.6.0
+    - license: <unknown>
+      packs:
+        - pack: Keil::STM32H7xx_DFP@3.1.1
