@@ -243,8 +243,6 @@ build:
           category: sourceC
         - file: ../../../../SignalProcess/fftana.h
           category: header
-        - file: ../../../../SignalProcess/hanning_window.h
-          category: header
     - group: MyDrive
       files:
         - file: ../../../../MyDrive/AD9910.c

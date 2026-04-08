@@ -23,15 +23,20 @@ void Start_ADC_DMA(void)
     HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc1_buffer, FFT_N);
     HAL_TIM_Base_Start(&htim3);
 }
+ void Stop_ADC_DMA(void)
+{
+    HAL_ADC_Stop_DMA(&hadc1);
+    HAL_TIM_Base_Stop(&htim3);
+}
 
- void FFT_Task(void)
+ void FFT_Task(Wave_Struct* Wave_P)
 {
     //  测量 Vpp
     process_data(adc1_buffer, &FFT_IN); 
-    Wave_Info.Vpp = Find_Vpp(&FFT_IN);
+    Wave_P->Vpp = Find_Vpp(&FFT_IN);
 
     // FFT 数据处理
-    add_window(&FFT_IN, Hanning_Window_2048);
+    // add_window(&FFT_IN, Hanning_Window_2048);
     fft_process(&FFT_IN, &FFT_OUT);
     regurlize_mag(&FFT_OUT, 1);
     get_max_3(&FFT_OUT, &Top3);

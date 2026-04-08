@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>STM32H743VITx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32H7xx_DFP.3.0.0</PackID>
+          <PackID>Keil.STM32H7xx_DFP.2.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000-0x2001FFFF) IRAM2(0x24000000-0x2407FFFF) IROM(0x8000000-0x81FFFFF) CLOCK(12000000) FPU3(DFPU) CPUTYPE("Cortex-M7") ELITTLE TZ</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -311,7 +311,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -570,16 +570,6 @@
               <FileType>5</FileType>
               <FilePath>..\Tasks\Tasks.h</FilePath>
             </File>
-            <File>
-              <FileName>sample_app_task_scheduler.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tasks\sample_app_task_scheduler.c</FilePath>
-            </File>
-            <File>
-              <FileName>sample_app_task_scheduler.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Tasks\sample_app_task_scheduler.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -594,11 +584,6 @@
               <FileName>fftana.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\SignalProcess\fftana.h</FilePath>
-            </File>
-            <File>
-              <FileName>hanning_window.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\SignalProcess\hanning_window.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -664,6 +649,11 @@
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MyDrive\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>global_types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyDrive\global_types.h</FilePath>
             </File>
           </Files>
         </Group>

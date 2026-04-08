@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "Tasks.h"
 #include "adc.h"
 #include "dma.h"
 #include "tim.h"
@@ -26,8 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "bsp_system.h"//各种头文件
-#include "fftana.h"
+#include "bsp_system.h"
 #include "global_types.h"
 /* USER CODE END Includes */
 
@@ -52,8 +52,11 @@
 char aRxBuffer[RXBUFFERSIZE];
 uint16_t RX_len;
 
-uint8_t adc_dma_finish = 0; 
-uint16_t __attribute__((section (".AXI_SRAM"))) adc1_buffer[FFT_N] ;
+volatile uint8_t adc_dma_finish = 0; 
+Wave_Struct Wave_Info;
+
+__attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N] ;
+
 fftin FFT_IN;
 fftdata FFT_OUT;
 max_3_index Top3;
@@ -70,7 +73,17 @@ static void MPU_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void App_process(void)
+{
+  if(adc_dma_finish == 0) return;
+     adc_dma_finish = 0;
+     	  SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
+        Stop_ADC_DMA();
+       FreqMeasure_Process(&Wave_Info);
+//       FFT_Task(&Wave_Info);
+//       USART_Task(&Wave_Info);
+       Start_ADC_DMA();
+}
 
 /* USER CODE END 0 */
 
@@ -124,7 +137,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
   FreqMeasure_Init();
-  System_Tasks_Init();
+  Start_ADC_DMA();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -202,18 +216,18 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     FreqMeasure_Count_Handler(GPIO_Pin); 
 }//输入捕获计数
 
-////dma传输完成（适用于dma Normal模式）
-//void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)//ad转换完成
-//{
-//	static uint8_t count = 0;
-//	if (hadc->Instance == ADC1) {
-//    count = 1; 
-//	}
-//	if (count) {
-//		HAL_TIM_Base_Stop(&htim3);
-//		adc_dma_finish=1;//adc传输完成，通知主循环开启任务
-//	}
-//}
+//dma传输完成（适用于dma Normal模式）
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)//ad转换完成
+{
+	static uint8_t count = 0;
+	if (hadc->Instance == ADC1) {
+   count = 1; 
+	}
+	if (count) {
+		// HAL_TIM_Base_Stop(&htim3);
+		adc_dma_finish=1;//adc传输完成，通知主循环开启任务
+	}
+}
 
 //串口中断回调规范版本
 void UsartReceive_IDLE(UART_HandleTypeDef *huart)
@@ -265,7 +279,7 @@ void MPU_Config(void)
   MPU_InitStruct.Number = MPU_REGION_NUMBER0;
   MPU_InitStruct.BaseAddress = 0x24000000;
   MPU_InitStruct.Size = MPU_REGION_SIZE_128KB;
-  MPU_InitStruct.SubRegionDisable = 0x87;
+  MPU_InitStruct.SubRegionDisable = 0x00;
   MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
   MPU_InitStruct.AccessPermission = MPU_REGION_NO_ACCESS;
   MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;

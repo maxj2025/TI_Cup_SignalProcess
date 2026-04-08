@@ -1,29 +1,13 @@
 # ninja log v7
-12	141	7960589660112342	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-mkdir	f8fa530f2e79ee9e
-12	141	7960589660112342	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-mkdir	f8fa530f2e79ee9e
-141	262	7960589661331784	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-download	664784c84db02954
-141	262	7960589661331784	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-download	664784c84db02954
-262	396	7960589662537714	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-update	e86dabaca4a02fb5
-262	396	7960589662537714	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-update	e86dabaca4a02fb5
-396	514	7960589663851862	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-patch	56f4187c078f2f34
-396	514	7960589663851862	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-patch	56f4187c078f2f34
-514	6204	7960589720735794	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-configure	cc9e8b0bd5042497
-514	6204	7960589720735794	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-configure	cc9e8b0bd5042497
-13	318	7967557941678844	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-database	a2800a98e6f81f41
-13	318	7967557941678844	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-database	a2800a98e6f81f41
-13	212	7960592126025954	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-build	38f4962e42573808
-13	212	7960592126025954	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/out/h743_hal/h743_hal/h743_hal.axf	38f4962e42573808
-13	212	7960592126025954	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/out/h743_hal/h743_hal/compile_commands.json	38f4962e42573808
-13	212	7960592126025954	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-build	38f4962e42573808
-2770	2897	7960590004588408	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-executes	eb843036c530187f
-2770	2897	7960590004588408	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-executes	eb843036c530187f
-463	526	7960592130546310	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-install	813f9f1c27872824
-463	526	7960592130546310	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-install	813f9f1c27872824
-526	638	7960592132256738	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-test	1358e7b7e56cfa31
-526	638	7960592132256738	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-test	1358e7b7e56cfa31
-638	813	7960592134008530	CMakeFiles/h743_hal+h743_hal-complete	eba1c357c66a7a7a
-638	813	7960592134008530	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-done	eba1c357c66a7a7a
-638	813	7960592134008530	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/CMakeFiles/h743_hal+h743_hal-complete	eba1c357c66a7a7a
-638	813	7960592134008530	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-done	eba1c357c66a7a7a
-20	295	7968233388479287	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-database	a2800a98e6f81f41
-20	295	7968233388479287	D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-database	a2800a98e6f81f41
+18	150	7973549887211170	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-mkdir	bc14e98960cc5b54
+18	150	7973549887211170	D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-mkdir	bc14e98960cc5b54
+151	279	7973549888514532	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-download	de2bd70e3839a2c7
+151	279	7973549888514532	D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-download	de2bd70e3839a2c7
+279	407	7973549889782484	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-update	32c5ab357b479c39
+279	407	7973549889782484	D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-update	32c5ab357b479c39
+407	534	7973549891048720	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-patch	6f8c3fdfce322208
+407	534	7973549891048720	D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-patch	6f8c3fdfce322208
+534	5847	7973549944176698	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-configure	14082a6faedb88fb
+534	5847	7973549944176698	D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-configure	14082a6faedb88fb
+15	287	7973572900124825	h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-database	6b4857049a854b39
+15	287	7973572900124825	D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/h743_hal+h743_hal-database	6b4857049a854b39

@@ -15,8 +15,10 @@
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__h743_hal.2bh743_hal_
-  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && d:\Users\47306\AppData\Roaming\SPB_Data\.vcpkg\artifacts\2139c4c6\compilers.arm.armclang\6.24.0\bin\armlink.exe $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES $in -o $TARGET_FILE  --list=$TARGET_FILE.map && $POST_BUILD"
+  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && d:\Users\47306\AppData\Roaming\SPB_Data\.vcpkg\artifacts\2139c4c6\compilers.arm.armclang\6.24.0\bin\armlink.exe $LINK_FLAGS  --via=$RSP_FILE -o $TARGET_FILE  --list=$TARGET_FILE.map && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
+  rspfile = $RSP_FILE
+  rspfile_content = $in $LINK_PATH $LINK_LIBRARIES
   restat = $RESTAT
 
 
@@ -112,7 +114,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = D:\Users\47306\AppData\Roaming\SPB_Data\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.31.5\bin\cmake.exe --regenerate-during-build -S"D:\Desktop_Floder\stm32 project\h743_MDK\MDK-ARM\tmp\h743_hal+h743_hal" -B"D:\Desktop_Floder\stm32 project\h743_MDK\MDK-ARM\tmp\1"
+  command = D:\Users\47306\AppData\Roaming\SPB_Data\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.31.5\bin\cmake.exe --regenerate-during-build -SD:\Desktop_Floder\Git_Project\TI_Cup_SignalProcess\h743_MDK\MDK-ARM\tmp\h743_hal+h743_hal -BD:\Desktop_Floder\Git_Project\TI_Cup_SignalProcess\h743_MDK\MDK-ARM\tmp\1
   description = Re-running CMake...
   generator = 1
 

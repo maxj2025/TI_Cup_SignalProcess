@@ -1,4 +1,4 @@
-#include "HMI.h"
+#include "bsp_system.h"
 
 void HMI_send_string(char* name,char* showdata)
 {

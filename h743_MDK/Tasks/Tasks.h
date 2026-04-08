@@ -9,20 +9,18 @@
 #define TIM3_MAX 20000000    // TIM3基础时钟20MHz
 #define AD_MAX  1500000     // ADC 采样率上限 1.5Msps
 
-extern uint8_t adc_dma_finish; 
-
+extern volatile uint8_t adc_dma_finish; 
+extern Wave_Struct Wave_Info;
 extern __attribute__((section (".AXI_SRAM"))) uint16_t adc1_buffer[FFT_N] ;
 extern fftin FFT_IN;
 extern fftdata FFT_OUT;
 extern max_3_index Top3;
 
-Wave_Struct Wave_Info = {
-    .Freq = 0,
-    .Vpp = 0,
-    .Wave_type = 0,
-};
-void System_Tasks_Init(void);
 
-void App_process(void);
 
+void Start_ADC_DMA(void);
+ void Stop_ADC_DMA(void);
+ void FFT_Task(Wave_Struct* Wave_P);//FFT处理任务，输入输出通过Wave_P结构体传递
+ void Set_ADC_Speed(Wave_Struct* Wave_P);//根据频率调整ADC采样率
+ void USART_Task(Wave_Struct* P_Wave);//串口处理任务，负责将结果通过串口发送给上位机显示
 #endif // __TASKS_H

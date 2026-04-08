@@ -125,7 +125,6 @@ project:
       files:
         - file: ../SignalProcess/fftana.c
         - file: ../SignalProcess/fftana.h
-        - file: ../SignalProcess/hanning_window.h
     - group: MyDrive
       files:
         - file: ../MyDrive/AD9910.c

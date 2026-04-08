@@ -1,5 +1,6 @@
 CompileFlags:
-  CompilationDatabase: d:\Desktop_Floder\stm32 project\h743_MDK\MDK-ARM\out\h743_hal\h743_hal
+  CompilationDatabase: >-
+    d:\Desktop_Floder\Git_Project\TI_Cup_SignalProcess\h743_MDK\MDK-ARM\out\h743_hal\h743_hal
   Add:
     - "-D_ILP32=1\r\n"
     - "-D_USE_STATIC_INLINE=1\r\n"
@@ -412,8 +413,33 @@ CompileFlags:
     - "-D__thumb2__=1\r\n"
     - "-D__thumb__=1\r\n"
     - '-D__ARMCOMPILER_LIBCXX=1'
-    - '-I"D:/Desktop_Floder/stm32'
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/RTE/_h743_hal
     - >-
       -IC:/Users/47306/AppData/Local/arm/packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
     - >-
       -IC:/Users/47306/AppData/Local/arm/packs/Keil/STM32H7xx_DFP/3.1.1/Drivers/CMSIS/Device/ST/STM32H7xx/Include
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Tasks
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../SignalProcess
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../MyDrive
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../SignalProcess/long_fft
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Core/Inc
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/STM32H7xx_HAL_Driver/Inc
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/CMSIS/Device/ST/STM32H7xx/Include
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/CMSIS/Include
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Hardware
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/CMSIS/DSP/Include
+    - >-
+      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal

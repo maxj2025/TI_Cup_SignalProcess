@@ -6,6 +6,6 @@
 -- Check for working C compiler: d:/Users/47306/AppData/Roaming/SPB_Data/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin/armclang.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Configuring done (5.4s)
+-- Configuring done (5.0s)
 -- Generating done (0.1s)
--- Build files have been written to: D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/1
+-- Build files have been written to: D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/1

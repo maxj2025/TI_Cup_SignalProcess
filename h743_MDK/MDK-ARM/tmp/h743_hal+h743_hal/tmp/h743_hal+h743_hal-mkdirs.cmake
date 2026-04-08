@@ -6,22 +6,22 @@ cmake_minimum_required(VERSION ${CMAKE_VERSION}) # this file comes with cmake
 # If CMAKE_DISABLE_SOURCE_CHANGES is set to true and the source directory is an
 # existing directory in our source tree, calling file(MAKE_DIRECTORY) on it
 # would cause a fatal error, even though it would be a no-op.
-if(NOT EXISTS "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal")
-  file(MAKE_DIRECTORY "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal")
+if(NOT EXISTS "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal")
+  file(MAKE_DIRECTORY "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal")
 endif()
 file(MAKE_DIRECTORY
-  "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/1"
-  "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal"
-  "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/tmp"
-  "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp"
-  "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src"
-  "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp"
+  "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/1"
+  "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal"
+  "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/tmp"
+  "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp"
+  "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src"
+  "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/${subDir}")
+    file(MAKE_DIRECTORY "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal/src/h743_hal+h743_hal-stamp${cfgdir}") # cfgdir has leading slash
 endif()

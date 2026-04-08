@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal
+source_dir=D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal
 work_dir=
 

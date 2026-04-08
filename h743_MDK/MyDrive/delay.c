@@ -1,4 +1,4 @@
-#include "delay.h"
+#include "bsp_system.h"
 void delay_us(uint32_t nus)
 {
   uint32_t ticks;
@@ -16,8 +16,6 @@ void delay_us(uint32_t nus)
 			told = tnow;
 			if(tcnt>=ticks)break;		
 		}
-		
-		
 	}
 }
 

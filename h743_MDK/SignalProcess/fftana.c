@@ -1,10 +1,5 @@
-//
-// Created by h3_Saki on 2025/10/28.
-//
-#include "fftana.h"
-#include "arm_const_structs_extra.h"
-#include "arm_math.h"
-#include "extra_ffts.h"
+
+#include "bsp_system.h"
 
 void process_data(const uint16_t *data_ori, fftin *data_processed) {
     float32_t dc_offset = 0.0f;
@@ -22,8 +17,9 @@ void process_data(const uint16_t *data_ori, fftin *data_processed) {
 }
 
 void add_window(fftin *data_in, const float32_t *windows_func) {//加窗函数，采用取采样点的方式
-    arm_cmplx_mult_real_f32(data_in->cmp, windows_func, data_in->cmp, FFT_N);
+   
     for (uint16_t i = 0; i < FFT_N; i++) {
+			  data_in->cmp[2*i] *= windows_func[i];
         data_in->cmp[2*i + 1] = 0.0f;
     }
 }
@@ -169,43 +165,7 @@ float32_t findnearfreq(float32_t freq1) {
 
     return freq1_out;
 }
-/* --- 新增的函数 --- */
-float32_t FFT_PostProcess_FreqAmp(
-    float32_t *fftMag, uint32_t peakIdx, float32_t freqRes, 
-    uint32_t Len, float32_t winCorrFactor, float32_t *pPreciseVpp)
-{
-    uint32_t fftMagHalfLen = Len / 2; 
-    if (peakIdx < 2 || peakIdx >= (fftMagHalfLen - 2) || fftMag == NULL) return 0.0f;
 
-    float32_t Y_prev2 = fftMag[peakIdx - 2];
-    float32_t Y_prev1 = fftMag[peakIdx - 1];
-    float32_t Y_peak  = fftMag[peakIdx];
-    float32_t Y_next1 = fftMag[peakIdx + 1];
-    float32_t Y_next2 = fftMag[peakIdx + 2];
-
-    // 三次多项式系数计算与δ求解
-    float32_t numerator = (Y_prev2 - Y_next2) * 2.0f + (Y_next1 - Y_prev1) * 12.0f;
-    float32_t denominator = (Y_prev2 - Y_prev1 * 4.0f + Y_peak * 6.0f - Y_next1 * 4.0f + Y_next2) * 12.0f;
-    
-    if (fabsf(denominator) < MIN_VALID_DENOM) return 0.0f;
-    
-    float32_t delta = fmaxf(fminf(numerator / denominator, 0.5f), -0.5f);
-    float32_t preciseFreq = (peakIdx + delta) * freqRes;
-
-    // 幅度校正计算
-    float32_t a = (Y_next2 - Y_prev2 + 3.0f*(Y_prev1 - Y_next1)) / 8.0f;
-    float32_t b = (Y_next2 + Y_prev2 - 2.0f*Y_peak) / 4.0f;
-    float32_t c = (Y_next1 - Y_prev1) / 2.0f;
-    float32_t preciseAmp = a*delta*delta*delta + b*delta*delta + c*delta + Y_peak;
-    
-    // 窗函数响应补偿校正
-    float32_t normalizedFreq = delta * freqRes / (freqRes * 2.0f);
-    float32_t windowResponse = 0.54f + 0.46f * cosf(2.0f * PI * normalizedFreq);
-    preciseAmp *= (winCorrFactor / windowResponse);
-
-    if (pPreciseVpp != NULL) *pPreciseVpp = preciseAmp * 2.0f;
-    return preciseFreq;
-}
 
 // 在基波3倍频附近寻找最大值点，应对频谱泄露
 float32_t Max_Three_Find(float32_t* Input, uint16_t Max_Index) {
@@ -220,105 +180,148 @@ float32_t Max_Three_Find(float32_t* Input, uint16_t Max_Index) {
     return max_temp;
 }
 
-uint8_t Rec_wavetype(float32_t* Input, uint16_t Len) {
-    uint16_t Max_pose = 0;
-    float32_t MAX_Val = 0;
-    
-    // 寻找主频点
-    for(int i = 3; i < (Len/2); i++) {
-        if(Input[i] > MAX_Val) { MAX_Val = Input[i]; Max_pose = i; }
+WaveType_t Rec_wavetype(fftdata *freqin, uint16_t idx) {
+
+    if (idx >= FFT_N_2 || idx == 0) {
+        return WAVE_UNKNOWN;
     }
-    
-    float32_t Three_Temp = Max_Three_Find(Input, Max_pose);
-    float32_t base = Input[Max_pose];
-    
-    // 根据比值系数识别
-    if (base >= 7.0f * Three_Temp && base <= 18.0f * Three_Temp) 
-        return 1; // TRIANGLE
-    else if (base >= 0.5f * Three_Temp && base <= 4.8f * Three_Temp) 
-        return 2; // SQUARE
-    else 
-        return 0; // SINE
+
+    float32_t MAX_Val = freqin->mag[idx];
+
+    if (MAX_Val < 0.02f) {
+        return WAVE_SINE; 
+    }
+
+    // 2. 获取三次谐波（使用之前实现的邻域搜索函数）
+    float32_t Three_Temp = Max_Three_Find(freqin->mag, idx);
+
+    // 3. 计算比值 (Ratio = 三次谐波 / 基波)
+    float32_t ratio = Three_Temp / MAX_Val;
+
+    // 4. 阈值判定逻辑
+    // 三角波理论值 1/9 ≈ 0.111
+    if (ratio >= 0.06f && ratio <= 0.18f) {
+        return WAVE_TRIANGLE;
+    }
+    // 方波理论值 1/3 ≈ 0.333
+    else if (ratio >= 0.22f && ratio <= 0.45f) {
+        return WAVE_SQUARE;
+    }
+    // 比值极小或不在上述区间，判定为正弦波
+    else {
+        return WAVE_SINE;
+    }
 }
 
 void Phase_atan(float32_t* FFT_In_Complex, uint32_t Index, float32_t* Phase) {
     *Phase = atan2f(FFT_In_Complex[2*Index+1], FFT_In_Complex[2*Index]) * 180.0f / PI;
 }
 
-void calc_psd_from_fft_mag_float(float32_t fft_mag[], float32_t psd[], float32_t Fs, uint32_t N_FFT, float32_t win_power_coeff) {
-    float32_t psd_scale = win_power_coeff / (Fs * N_FFT); //
-    for (uint32_t k = 0; k < N_FFT / 2; k++) {
-        psd[k] = (fft_mag[k] * fft_mag[k]) * psd_scale;
-    }
-}
-
-
 float32_t Find_Vpp(fftin *input)
 {
-    float32_t Vpp = 0.0f;
-    uint32_t Max_count = 0;
-    uint32_t Min_count = 0;
+    // 根据项目规范使用 FFT_N，此处按你原逻辑取一半的数据进行时域分析
+    int num_samples = FFT_N / 2; 
     
+    if (num_samples <= 0) return 0.0f;
+
+    // 1. 计算信号的 DC 直流偏置 (平均值)
+    float32_t dc_offset = 0.0f;
+    for(int i = 0; i < num_samples; i++) {
+        dc_offset += input->cmp[2 * i];
+    }
+    dc_offset /= (float32_t)num_samples;
+
+    // 2. 过零检测与周期极值抓取
     float32_t AD_sum_max = 0.0f;
     float32_t AD_sum_min = 0.0f;
+    uint32_t Max_count = 0;
+    uint32_t Min_count = 0;
+
+    float32_t current_cycle_max = dc_offset;
+    float32_t current_cycle_min = dc_offset;
     
+    // 状态机：0=寻找起始点, 1=处于正半周, -1=处于负半周
+    int state = 0; 
 
-    int num_samples = FFT_N_2;
+    for(int i = 0; i < num_samples; i++) {
+        float32_t val = input->cmp[2 * i];
 
-    const float32_t VOLT_THRESHOLD = 0.05f; 
-    const float32_t MIN_DIFF_THRESHOLD = 0.02f;
-
-    for(int i = 10; i < num_samples - 10; i++)
-    {
-        uint8_t num_count_max = 0;
-        float32_t current_R = input->cmp[2 * i]; 
-
-        for(int j = 1; j < 6; j++)
-        {
-            if((current_R >= input->cmp[2 * (i - j)]) && 
-               (current_R >= input->cmp[2 * (i + j)]) && 
-               (current_R >= VOLT_THRESHOLD))
-            {
-                num_count_max++;
+        if (val > dc_offset) {
+            // 从负半周跨越到正半周：结算上一个负半周的最小值
+            if (state == -1) {
+                AD_sum_min += current_cycle_min;
+                Min_count++;
+                current_cycle_max = val; // 重置最大值记录器
+            } 
+            else {
+                // 持续在正半周：不断刷新当前周期的最大值
+                if (val > current_cycle_max) {
+                    current_cycle_max = val;
+                }
             }
+            state = 1;
         }
-        
-        if(num_count_max >= 4)
-        {
-            AD_sum_max += current_R;
-            Max_count++;    
-        }   
+        else if (val < dc_offset) {
+            // 从正半周跨越到负半周：结算上一个正半周的最大值
+            if (state == 1) {
+                AD_sum_max += current_cycle_max;
+                Max_count++;
+                current_cycle_min = val; // 重置最小值记录器
+            } 
+            else {
+                // 持续在负半周：不断刷新当前周期的最小值
+                if (val < current_cycle_min) {
+                    current_cycle_min = val;
+                }
+            }
+            state = -1;
+        }
     }
 
-    if(Max_count == 0) return 0.0f;
+    // 容错：处理最后一段未闭合的半周期
+    if (state == 1 && current_cycle_max > dc_offset + 0.05f) {
+        AD_sum_max += current_cycle_max; 
+        Max_count++;
+    } else if (state == -1 && current_cycle_min < dc_offset - 0.05f) {
+        AD_sum_min += current_cycle_min; 
+        Min_count++;
+    }
+
+    // 3. 计算最终平均峰峰值
+    if(Max_count == 0 || Min_count == 0) return 0.0f;
+    
     float32_t Vpp_AD_Max = AD_sum_max / (float32_t)Max_count;
-
-    for(int i = 5; i < num_samples - 5; i++)
-    {
-        uint8_t num_count_min = 0;
-        float32_t current_R = input->cmp[2 * i];
-
-        for(int j = 1; j < 6; j++)
-        {
-            if((current_R <= input->cmp[2 * (i - j)]) && 
-               (current_R <= input->cmp[2 * (i + j)]) && 
-               (current_R + MIN_DIFF_THRESHOLD < Vpp_AD_Max))
-            {
-                num_count_min++;
-            }
-        }
-        
-        if(num_count_min >= 4)
-        {
-            AD_sum_min += current_R;
-            Min_count++;    
-        }   
-    }
-
-    if(Min_count == 0) return 0.0f;
     float32_t Vpp_AD_Min = AD_sum_min / (float32_t)Min_count;
 
-    Vpp = Vpp_AD_Max - Vpp_AD_Min; 
-    
-    return Vpp;
+    return (Vpp_AD_Max - Vpp_AD_Min);
 }
+
+
+float32_t Max_Harmonic_Find(float32_t* Input, uint16_t Base_Index, uint8_t Harmonic_N) {
+    
+	uint32_t target = (uint32_t)Base_Index * Harmonic_N;
+    
+    if (target >= FFT_N_2) {
+        return 0.0f;
+    }
+
+    float32_t max_val = 0.0f;
+    
+    // 3. 定义搜索邻域：通常取 +/- 2 或 +/- 3 个频点
+    // 因为不加窗的矩形窗主瓣较窄，+/- 2 足够覆盖能量集中的区域
+    int8_t search_range = 2; 
+
+    for (int8_t offset = -search_range; offset <= search_range; offset++) {
+        int32_t current_idx = (int32_t)target + offset;
+        
+        // 4. 确保搜索索引不越界 (不能小于0，不能超过 FFT_N_2)
+        if (current_idx > 0 && current_idx < FFT_N_2) {
+            if (Input[current_idx] > max_val) {
+                max_val = Input[current_idx];
+            }
+        }
+    }
+
+    return max_val;
+}
+

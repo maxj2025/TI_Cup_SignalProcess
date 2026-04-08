@@ -1,4 +1,11 @@
-#include "Get_Freq.h"
+#include "bsp_system.h"
+
+typedef struct {
+    uint8_t  current_mode;  // 0: 测周法(输入捕获), 1: 测频法(外部中断)
+    uint64_t count;         // 测频法计数
+    uint32_t gate_start;    // 闸门起始时间
+    uint8_t  is_measuring;  // 测频法测量标志
+} FreqControl_t;
 
 static FreqControl_t FreqCtrl = {0};
 
@@ -74,13 +81,13 @@ void FreqMeasure_Count_Handler(uint16_t GPIO_Pin) {
     }
 }
 
-void FreqMeasure_Process(float *pFreq) {
+void FreqMeasure_Process(Wave_Struct* Wave_P) {
     if (FreqCtrl.current_mode == 0) { // 测周法
         float temp = Get_Capture_Freq();
-        if (temp > 0) *pFreq = temp;
+        if (temp > 0) Wave_P->Freq = temp;
 
         // 模式切换判断：高频阈值 11kHz
-        if (*pFreq > 11000.0f) {
+        if (Wave_P->Freq > 11000.0f) {
             FreqCtrl.current_mode = 1;
             Freq_Hardware_Switch(1);
             FreqCtrl.is_measuring = 0;
@@ -93,11 +100,11 @@ void FreqMeasure_Process(float *pFreq) {
             FreqCtrl.is_measuring = 1;
         } else {
             if (HAL_GetTick() - FreqCtrl.gate_start >= 1000) { // 1秒闸门
-                *pFreq = (float)FreqCtrl.count;
+                Wave_P->Freq = (float)FreqCtrl.count;
                 FreqCtrl.is_measuring = 0;
 
                 // 模式切换判断：低频迟滞阈值 9kHz
-                if (*pFreq < 9000.0f) {
+                if (Wave_P->Freq < 9000.0f) {
                     FreqCtrl.current_mode = 0;
                     Freq_Hardware_Switch(0);
                 }
