@@ -209,6 +209,11 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void EXTI9_5_IRQHandler(void)
+{
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5); // 清除标志位并调用 Callback
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     FreqMeasure_Count_Handler(GPIO_Pin); 
 }//输入捕获计数
@@ -278,7 +283,7 @@ void MPU_Config(void)
   MPU_InitStruct.Size = MPU_REGION_SIZE_128KB;
   MPU_InitStruct.SubRegionDisable = 0x00;
   MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
-  MPU_InitStruct.AccessPermission = MPU_REGION_NO_ACCESS;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
   MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
   MPU_InitStruct.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
   MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;

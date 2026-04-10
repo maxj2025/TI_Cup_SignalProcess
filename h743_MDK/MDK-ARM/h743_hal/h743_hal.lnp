@@ -46,7 +46,7 @@
 "..\SignalProcess\long_fft\arm_cortexM7l_math.lib"
 "h743_hal\arm_rfft_fast_f32_extra.o"
 "h743_hal\arm_rfft_fast_init_f32_extra.o"
---library_type=microlib --strict --scatter ".\h743_hal_h743_hal.sct"
+--library_type=microlib --strict --scatter ".\h743_hal\h743_hal.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "h743_hal.map" -o h743_hal\h743_hal.axf
