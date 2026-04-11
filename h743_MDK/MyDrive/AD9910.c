@@ -488,3 +488,27 @@ void AD9910_DRG_FrePara_Set(uint32_t lowFre, uint32_t upFre, uint32_t posStep, u
     AD9910_UP_DAT_1;
     AD9910_UP_DAT_0;
 }
+
+/************************************************************
+** 函数名称 ：void AD9910_PhaWrite(float phase)
+** 函数功能 ：将相位角度转换为控制数据并写入芯片
+** 入口参数 ：phase: 目标相位，单位：度 (°)，范围 0 ~ 360
+** 出口参数 ：无
+** 函数说明 ：16位相位控制字，65535 对应 360度
+**************************************************************/
+void AD9910_PhaWrite(float phase)
+{
+    uint16_t phase_offset_word;
+    
+    // 参考上传源码的换算方法
+    // POW = (Phase / 360.0) * 65535
+    phase_offset_word = (uint16_t)(phase / 360.0f * 65535.0f); 
+
+    // 对应 profile11 数组中的相位槽位（字节 2 和 3）
+    profile11[2] = (uchar)(phase_offset_word >> 8);   // 相位高 8 位
+    profile11[3] = (uchar)(phase_offset_word & 0xFF); // 相位低 8 位
+
+    // 发送数据到芯片
+    Txfrc();
+}
+

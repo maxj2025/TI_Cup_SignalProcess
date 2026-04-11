@@ -60,7 +60,6 @@ fftin FFT_IN;
 fftdata FFT_OUT;
 max_3_index Top3;
 
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -142,7 +141,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-  	App_process();
+		
+//  	App_process();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
