@@ -134,7 +134,8 @@ int main(void)
   HAL_UARTEx_ReceiveToIdle_IT(&huart3, (uint8_t *)aRxBuffer, RXBUFFERSIZE);
   FreqMeasure_Init();
   Start_ADC_DMA();
-
+  AD9959_Init();
+	AD9959_Set_Fre(CH0,10000);
   /* USER CODE END 2 */
 
   /* Infinite loop */

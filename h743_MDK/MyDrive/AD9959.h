@@ -74,7 +74,7 @@
 #define	SWEEP_ENABLE	0x40	//1	启用
 #define	SWEEP_DISABLE	0x00	//0	不启用
 
-void delay1 (uint32_t length);//延时
+//void delay1 (uint32_t length);//延时
 void IntReset(void);	 			//AD9959复位
 void IO_Update(void); 		  //AD9959更新数据
 void Intserve(void);				//IO口电平状态初始化
