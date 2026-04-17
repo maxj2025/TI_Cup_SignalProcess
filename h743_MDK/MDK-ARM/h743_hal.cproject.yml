@@ -1,7 +1,7 @@
 project:
   packs:
-    - pack: ARM::CMSIS@^5.9.0
-    - pack: Keil::STM32H7xx_DFP@^3.0.0
+    - pack: ARM::CMSIS@^5.8.0
+    - pack: Keil::STM32H7xx_DFP@^2.7.0
     - pack: ARM::CMSIS-NN@^4.0.0
     - pack: ARM::CMSIS-DSP@^1.10.1
   setups:
@@ -53,7 +53,7 @@ project:
             - -Wno-parentheses-equality
           CPP:
             - -xc++
-            - -std=c++03
+            - -std=c++11
             - -fno-exceptions
           ASM:
             - -masm=auto
@@ -72,7 +72,7 @@ project:
             - --summary_stderr
             - --info summarysizes
   linker:
-    - script: h743_hal_h743_hal.sct
+    - script: h743_hal/h743_hal.sct
   groups:
     - group: Application/MDK-ARM
       files:
@@ -80,6 +80,7 @@ project:
           misc:
             - ASM:
                 - -masm=auto
+                - -x assembler
     - group: Application/User/Core
       files:
         - file: ../Core/Src/main.c

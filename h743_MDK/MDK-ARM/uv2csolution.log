@@ -1,13 +1,13 @@
 1 out of 1 target(s) converted
 
-Created solution: D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/h743_hal.csolution.yml
+Created solution: D:/Desktop_Floder/Git_Project/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/h743_hal.csolution.yml
 
 With projects:
 
-- D:/Desktop_Floder/stm32 project/h743_MDK/MDK-ARM/h743_hal.cproject.yml
+- D:/Desktop_Floder/Git_Project/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/h743_hal.cproject.yml
 
 Error: 0 error(s), 1 warning(s):
 
 Warnings:
 
-	For target "h743_hal" file 'D:/Desktop_Floder/stm32 project/h743_MDK/Hardware' does not exists
+	For target "h743_hal" file 'D:/Desktop_Floder/Git_Project/Stm32H743_TI_Cup/h743_MDK/Hardware' does not exists

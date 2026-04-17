@@ -97,7 +97,7 @@ typedef enum
 /* ---------------- 函数声明 ---------------- */
 
 void Init_AD9910(void);                        // AD9910 寄存器初始化配置
-void AD9910_FreWrite(ulong Freq);              // 写入单点频率 (FTW)
+void AD9910_FreWrite(double Freq);          // 写入单点频率 (FTW)
 void AD9910_AmpWrite(uint16_t Amp);            // 写入单点振幅 (ASF)
 void AD9910_PhaWrite(float phase);
 void AD9910_RAM_WAVE_Set(AD9910_WAVE_ENUM wave); // 配置并启动 RAM 波形输出
