@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_PWR_LDO_SUPPLY,USE_HAL_DRIVER,STM32H743xx,ARM_MATH_CM7, __FPU_PRESENT=1</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../Hardware;../Drivers/CMSIS/DSP/Include;..\App;..\App\comm;..\App\dds;..\App\fft;..\App\measure;..\App\task;..\App\utils;..\long_fft</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../Hardware;../Drivers/CMSIS/DSP/Include;../App;../App/comm;../App/dds;../App/fft;../App/measure;../App/task;../App/utils;../long_fft</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

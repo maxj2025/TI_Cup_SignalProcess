@@ -81,8 +81,8 @@ void App_process(void)
      	  SCB_InvalidateDCache_by_Addr((uint32_t *)g_adc_buffer, sizeof(g_adc_buffer));
         Stop_ADC_DMA();
        FreqMeasure_Process(&g_wave_info);
-//       FFT_Task(&g_wave_info);
-//       USART_Task(&g_wave_info);
+       FFT_Task(&g_wave_info);
+       USART_Task(&g_wave_info);
        Start_ADC_DMA();
 }
 
@@ -214,14 +214,6 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void EXTI9_5_IRQHandler(void)
-{
-    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5); // 清除标志位并调用 Callback
-}
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-    FreqMeasure_Count_Handler(GPIO_Pin); 
-}//输入捕获计数
 
 //dma传输完成（适用于dma Normal模式）
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)//ad转换完成

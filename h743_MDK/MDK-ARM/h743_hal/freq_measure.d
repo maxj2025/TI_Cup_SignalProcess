@@ -11,9 +11,8 @@ h743_hal/freq_measure.o: ..\App\measure\freq_measure.c \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
+  ..\Drivers\CMSIS\Include\cachel1_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
@@ -40,7 +39,7 @@ h743_hal/freq_measure.o: ..\App\measure\freq_measure.c \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
-  ..\App\app_config.h ..\Core\Inc\tim.h ..\Core\Inc\main.h \
+  ..\Core\Inc\tim.h ..\Core\Inc\main.h \
   ..\Drivers\CMSIS\DSP\Include\arm_math.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
