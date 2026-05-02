@@ -1,7 +1,6 @@
 build-idx:
   generated-by: csolution version 2.13.0+p3-g40b6564e
   csolution: h743_hal.csolution.yml
-  cbuild-run: out/h743_hal+h743_hal.cbuild-run.yml
   tmpdir: tmp
   cprojects:
     - cproject: h743_hal.cproject.yml
@@ -10,12 +9,21 @@ build-idx:
       project: h743_hal
       configuration: +h743_hal
       messages:
-        warnings:
-          - file 'D:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/.cmsis/h743_hal+h743_hal.dbgconf' update suggested; merge content from update file, rename update file to base file and remove previous base file
+        errors:
+          - h743_hal.cproject.yml:148:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_bitreversal2_extra.c' was not found
+          - h743_hal.cproject.yml:149:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_cfft_f32_extra.c' was not found
+          - h743_hal.cproject.yml:150:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_cfft_init_f32_extra.c' was not found
+          - h743_hal.cproject.yml:151:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_common_tables_extra.c' was not found
+          - h743_hal.cproject.yml:152:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_common_tables_extra.h' was not found
+          - h743_hal.cproject.yml:153:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_const_structs_extra.c' was not found
+          - h743_hal.cproject.yml:154:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_const_structs_extra.h' was not found
+          - h743_hal.cproject.yml:155:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_cortexM7l_math.lib' was not found
+          - h743_hal.cproject.yml:156:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_rfft_fast_f32_extra.c' was not found
+          - h743_hal.cproject.yml:157:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/arm_rfft_fast_init_f32_extra.c' was not found
+          - h743_hal.cproject.yml:158:11 - file 'D:/My_Git/Stm32H743_TI_Cup/h743_MDK/SignalProcess/long_fft/extra_ffts.h' was not found
         info:
           - h743_hal.cbuild-pack.yml - file is already up-to-date
-          - h743_hal+h743_hal.cbuild-run.yml - file is already up-to-date
-          - h743_hal+h743_hal.cbuild.yml - file is already up-to-date
+          - h743_hal+h743_hal.cbuild.yml - file generated successfully
       packs-unused:
         - pack: ARM::CMSIS-DSP@1.16.2
         - pack: ARM::CMSIS-NN@4.1.0

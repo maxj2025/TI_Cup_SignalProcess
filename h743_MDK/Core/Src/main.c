@@ -26,8 +26,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "bsp_system.h"
-#include "global_types.h"
+#include "app_config.h"
+#include "app_types.h"
+#include "freq_measure.h"
+#include "adc_task.h"
+#include "hmi_comm.h"
+#include "ad9959.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,18 +52,17 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-char aRxBuffer[RXBUFFERSIZE];
-uint16_t RX_len;
+char      aRxBuffer[RXBUFFERSIZE];   // 串口 DMA 接收缓冲
+uint16_t  RX_len;                     // 接收数据长度
 
-volatile uint8_t adc_dma_finish = 0; 
-Wave_Struct Wave_Info;
+volatile uint8_t adc_dma_finish = 0; // ADC DMA 完成标志
+Wave_Struct       g_wave_info;        // 当前波形测量结果
 
-__attribute__((section (".AXI_SRAM")))  uint16_t adc1_buffer[FFT_N] ;
+__attribute__((section(".AXI_SRAM"))) uint16_t g_adc_buffer[FFT_N];
 
-fftin FFT_IN;
-fftdata FFT_OUT;
-max_3_index Top3;
-
+fftin_t   g_fft_in;
+fftout_t  g_fft_out;
+peak3_t   g_peaks;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -75,11 +78,11 @@ void App_process(void)
 {
   if(adc_dma_finish == 0) return;
      adc_dma_finish = 0;
-     	  SCB_InvalidateDCache_by_Addr((uint32_t *)adc1_buffer, sizeof(adc1_buffer));
+     	  SCB_InvalidateDCache_by_Addr((uint32_t *)g_adc_buffer, sizeof(g_adc_buffer));
         Stop_ADC_DMA();
-       FreqMeasure_Process(&Wave_Info);
-//       FFT_Task(&Wave_Info);
-//       USART_Task(&Wave_Info);
+       FreqMeasure_Process(&g_wave_info);
+//       FFT_Task(&g_wave_info);
+//       USART_Task(&g_wave_info);
        Start_ADC_DMA();
 }
 
@@ -135,7 +138,8 @@ int main(void)
   FreqMeasure_Init();
   Start_ADC_DMA();
   AD9959_Init();
-	AD9959_Set_Fre(CH0,10000);
+  AD9959_Set_Freq(CH0, AD9959_DEFAULT_FREQ);
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -143,7 +147,7 @@ int main(void)
   while (1)
   {
 		
-//  	App_process();
+  	App_process();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -307,7 +311,7 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
-     HMI_send_string("t3.txt", "ERROR");
+     /* 在此添加错误处理（如 LED 闪烁） */
   }
   /* USER CODE END Error_Handler_Debug */
 }

@@ -1,0 +1,4 @@
+cbuild-set:
+  generated-by: csolution version 2.13.0+p3-g40b6564e
+  contexts:
+    - context: h743_hal+h743_hal

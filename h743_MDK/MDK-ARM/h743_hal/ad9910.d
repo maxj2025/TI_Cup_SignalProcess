@@ -1,4 +1,4 @@
-h743_hal/ad9910.o: ..\MyDrive\AD9910.c ..\Core\Inc\main.h \
+h743_hal/ad9910.o: ..\App\dds\ad9910.c ..\Core\Inc\main.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
@@ -42,5 +42,5 @@ h743_hal/ad9910.o: ..\MyDrive\AD9910.c ..\Core\Inc\main.h \
   ..\Drivers\CMSIS\DSP\Include\arm_math.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h ..\MyDrive\AD9910.h \
-  ..\MyDrive\sys.h D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h ..\App\dds\ad9910.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h

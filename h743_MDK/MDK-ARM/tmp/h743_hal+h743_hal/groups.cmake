@@ -30,7 +30,7 @@ set_source_files_properties("${SOLUTION_ROOT}/startup_stm32h743xx.s" PROPERTIES
   COMPILE_FLAGS "${COMPILE_DEFINITIONS}"
 )
 set_source_files_properties("${SOLUTION_ROOT}/startup_stm32h743xx.s" PROPERTIES
-  COMPILE_OPTIONS "-masm=auto"
+  COMPILE_OPTIONS "-masm=auto;-x;assembler-with-cpp"
 )
 
 # group Application/User/Core
@@ -124,74 +124,38 @@ target_link_libraries(Group_Drivers_CMSIS PUBLIC
   Group_Drivers_CMSIS_ABSTRACTIONS
 )
 
-# group Tasks
-add_library(Group_Tasks OBJECT
-  "${SOLUTION_ROOT}/../Tasks/Tasks.c"
+# group App
+add_library(Group_App OBJECT
+  "${SOLUTION_ROOT}/../App/fft/fft_analyzer.c"
+  "${SOLUTION_ROOT}/../App/measure/freq_measure.c"
+  "${SOLUTION_ROOT}/../App/dds/ad9910.c"
+  "${SOLUTION_ROOT}/../App/dds/ad9959.c"
+  "${SOLUTION_ROOT}/../App/task/adc_task.c"
+  "${SOLUTION_ROOT}/../App/comm/hmi_comm.c"
+  "${SOLUTION_ROOT}/../App/utils/delay.c"
 )
-target_include_directories(Group_Tasks PUBLIC
+target_include_directories(Group_App PUBLIC
   $<TARGET_PROPERTY:${CONTEXT},INTERFACE_INCLUDE_DIRECTORIES>
-  "${SOLUTION_ROOT}/../Tasks"
+  "${SOLUTION_ROOT}/../App"
+  "${SOLUTION_ROOT}/../App/fft"
+  "${SOLUTION_ROOT}/../App/measure"
+  "${SOLUTION_ROOT}/../App/dds"
+  "${SOLUTION_ROOT}/../App/task"
+  "${SOLUTION_ROOT}/../App/comm"
+  "${SOLUTION_ROOT}/../App/utils"
 )
-target_compile_definitions(Group_Tasks PUBLIC
+target_compile_definitions(Group_App PUBLIC
   $<TARGET_PROPERTY:${CONTEXT},INTERFACE_COMPILE_DEFINITIONS>
 )
-add_library(Group_Tasks_ABSTRACTIONS INTERFACE)
-target_link_libraries(Group_Tasks_ABSTRACTIONS INTERFACE
+add_library(Group_App_ABSTRACTIONS INTERFACE)
+target_link_libraries(Group_App_ABSTRACTIONS INTERFACE
   ${CONTEXT}_ABSTRACTIONS
 )
-target_compile_options(Group_Tasks PUBLIC
+target_compile_options(Group_App PUBLIC
   $<TARGET_PROPERTY:${CONTEXT},INTERFACE_COMPILE_OPTIONS>
 )
-target_link_libraries(Group_Tasks PUBLIC
-  Group_Tasks_ABSTRACTIONS
-)
-
-# group SignalProsess
-add_library(Group_SignalProsess OBJECT
-  "${SOLUTION_ROOT}/../SignalProcess/fftana.c"
-)
-target_include_directories(Group_SignalProsess PUBLIC
-  $<TARGET_PROPERTY:${CONTEXT},INTERFACE_INCLUDE_DIRECTORIES>
-  "${SOLUTION_ROOT}/../SignalProcess"
-)
-target_compile_definitions(Group_SignalProsess PUBLIC
-  $<TARGET_PROPERTY:${CONTEXT},INTERFACE_COMPILE_DEFINITIONS>
-)
-add_library(Group_SignalProsess_ABSTRACTIONS INTERFACE)
-target_link_libraries(Group_SignalProsess_ABSTRACTIONS INTERFACE
-  ${CONTEXT}_ABSTRACTIONS
-)
-target_compile_options(Group_SignalProsess PUBLIC
-  $<TARGET_PROPERTY:${CONTEXT},INTERFACE_COMPILE_OPTIONS>
-)
-target_link_libraries(Group_SignalProsess PUBLIC
-  Group_SignalProsess_ABSTRACTIONS
-)
-
-# group MyDrive
-add_library(Group_MyDrive OBJECT
-  "${SOLUTION_ROOT}/../MyDrive/AD9910.c"
-  "${SOLUTION_ROOT}/../MyDrive/AD9959.c"
-  "${SOLUTION_ROOT}/../MyDrive/Get_Freq.c"
-  "${SOLUTION_ROOT}/../MyDrive/HMI.c"
-  "${SOLUTION_ROOT}/../MyDrive/delay.c"
-)
-target_include_directories(Group_MyDrive PUBLIC
-  $<TARGET_PROPERTY:${CONTEXT},INTERFACE_INCLUDE_DIRECTORIES>
-  "${SOLUTION_ROOT}/../MyDrive"
-)
-target_compile_definitions(Group_MyDrive PUBLIC
-  $<TARGET_PROPERTY:${CONTEXT},INTERFACE_COMPILE_DEFINITIONS>
-)
-add_library(Group_MyDrive_ABSTRACTIONS INTERFACE)
-target_link_libraries(Group_MyDrive_ABSTRACTIONS INTERFACE
-  ${CONTEXT}_ABSTRACTIONS
-)
-target_compile_options(Group_MyDrive PUBLIC
-  $<TARGET_PROPERTY:${CONTEXT},INTERFACE_COMPILE_OPTIONS>
-)
-target_link_libraries(Group_MyDrive PUBLIC
-  Group_MyDrive_ABSTRACTIONS
+target_link_libraries(Group_App PUBLIC
+  Group_App_ABSTRACTIONS
 )
 
 # group long_fft

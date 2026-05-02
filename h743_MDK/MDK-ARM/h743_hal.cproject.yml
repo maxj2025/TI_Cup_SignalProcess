@@ -1,7 +1,7 @@
 project:
   packs:
     - pack: ARM::CMSIS@^5.8.0
-    - pack: Keil::STM32H7xx_DFP@^2.7.0
+    - pack: Keil::STM32H7xx_DFP@^3.1.0
     - pack: ARM::CMSIS-NN@^4.0.0
     - pack: ARM::CMSIS-DSP@^1.10.1
   setups:
@@ -14,19 +14,24 @@ project:
         - ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
         - ../Drivers/CMSIS/Device/ST/STM32H7xx/Include
         - ../Drivers/CMSIS/Include
-        - ../Hardware
         - ../Drivers/CMSIS/DSP/Include
         - ../SignalProcess
         - ../SignalProcess/long_fft
         - ../MyDrive
         - ../Tasks
+        - ../App
+        - ../App/fft
+        - ../App/measure
+        - ../App/dds
+        - ../App/task
+        - ../App/comm
+        - ../App/utils
       debug: "on"
       define:
         - USE_PWR_LDO_SUPPLY
         - USE_HAL_DRIVER
         - STM32H743xx
         - ARM_MATH_CM7
-        - __FPU_PRESENT: "1"
         - __MICROLIB
       define-asm:
         - __MICROLIB
@@ -51,6 +56,7 @@ project:
             - -Wno-documentation
             - -Wno-license-management
             - -Wno-parentheses-equality
+            - -Wno-unused-function
           CPP:
             - -xc++
             - -std=c++11
@@ -80,7 +86,8 @@ project:
           misc:
             - ASM:
                 - -masm=auto
-                - -x assembler
+                - -x
+                - assembler-with-cpp
     - group: Application/User/Core
       files:
         - file: ../Core/Src/main.c
@@ -118,29 +125,24 @@ project:
     - group: Drivers/CMSIS
       files:
         - file: ../Core/Src/system_stm32h7xx.c
-    - group: Tasks
+    - group: App
       files:
-        - file: ../Tasks/Tasks.c
-        - file: ../Tasks/Tasks.h
-    - group: SignalProsess
-      files:
-        - file: ../SignalProcess/fftana.c
-        - file: ../SignalProcess/fftana.h
-    - group: MyDrive
-      files:
-        - file: ../MyDrive/AD9910.c
-        - file: ../MyDrive/AD9910.h
-        - file: ../MyDrive/AD9959.c
-        - file: ../MyDrive/AD9959.h
-        - file: ../MyDrive/bsp_system.h
-        - file: ../MyDrive/delay.h
-        - file: ../MyDrive/Get_Freq.c
-        - file: ../MyDrive/Get_Freq.h
-        - file: ../MyDrive/HMI.c
-        - file: ../MyDrive/HMI.h
-        - file: ../MyDrive/sys.h
-        - file: ../MyDrive/delay.c
-        - file: ../MyDrive/global_types.h
+        - file: ../App/app_config.h
+        - file: ../App/app_types.h
+        - file: ../App/fft/fft_analyzer.c
+        - file: ../App/fft/fft_analyzer.h
+        - file: ../App/measure/freq_measure.c
+        - file: ../App/measure/freq_measure.h
+        - file: ../App/dds/ad9910.c
+        - file: ../App/dds/ad9910.h
+        - file: ../App/dds/ad9959.c
+        - file: ../App/dds/ad9959.h
+        - file: ../App/task/adc_task.c
+        - file: ../App/task/adc_task.h
+        - file: ../App/comm/hmi_comm.c
+        - file: ../App/comm/hmi_comm.h
+        - file: ../App/utils/delay.c
+        - file: ../App/utils/delay.h
     - group: long_fft
       files:
         - file: ../SignalProcess/long_fft/arm_bitreversal2_extra.c

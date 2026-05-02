@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_PWR_LDO_SUPPLY,USE_HAL_DRIVER,STM32H743xx,ARM_MATH_CM7, __FPU_PRESENT=1</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../Hardware;../Drivers/CMSIS/DSP/Include;../SignalProcess;../SignalProcess/long_fft;../MyDrive;../Tasks</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;../Hardware;../Drivers/CMSIS/DSP/Include;..\App;..\App\comm;..\App\dds;..\App\fft;..\App\measure;..\App\task;..\App\utils;..\long_fft</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -561,102 +561,17 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Tasks</GroupName>
+          <GroupName>APP</GroupName>
           <Files>
             <File>
-              <FileName>Tasks.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tasks\Tasks.c</FilePath>
-            </File>
-            <File>
-              <FileName>Tasks.h</FileName>
+              <FileName>app_config.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tasks\Tasks.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>SignalProsess</GroupName>
-          <Files>
-            <File>
-              <FileName>fftana.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SignalProcess\fftana.c</FilePath>
+              <FilePath>..\App\app_config.h</FilePath>
             </File>
             <File>
-              <FileName>fftana.h</FileName>
+              <FileName>app_types.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\SignalProcess\fftana.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>MyDrive</GroupName>
-          <Files>
-            <File>
-              <FileName>AD9910.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MyDrive\AD9910.c</FilePath>
-            </File>
-            <File>
-              <FileName>AD9910.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\MyDrive\AD9910.h</FilePath>
-            </File>
-            <File>
-              <FileName>AD9959.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MyDrive\AD9959.c</FilePath>
-            </File>
-            <File>
-              <FileName>AD9959.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\MyDrive\AD9959.h</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_system.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\MyDrive\bsp_system.h</FilePath>
-            </File>
-            <File>
-              <FileName>delay.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\MyDrive\delay.h</FilePath>
-            </File>
-            <File>
-              <FileName>Get_Freq.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MyDrive\Get_Freq.c</FilePath>
-            </File>
-            <File>
-              <FileName>Get_Freq.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\MyDrive\Get_Freq.h</FilePath>
-            </File>
-            <File>
-              <FileName>HMI.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MyDrive\HMI.c</FilePath>
-            </File>
-            <File>
-              <FileName>HMI.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\MyDrive\HMI.h</FilePath>
-            </File>
-            <File>
-              <FileName>sys.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\MyDrive\sys.h</FilePath>
-            </File>
-            <File>
-              <FileName>delay.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MyDrive\delay.c</FilePath>
-            </File>
-            <File>
-              <FileName>global_types.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\MyDrive\global_types.h</FilePath>
+              <FilePath>..\App\app_types.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -666,57 +581,142 @@
             <File>
               <FileName>arm_bitreversal2_extra.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_bitreversal2_extra.c</FilePath>
+              <FilePath>..\long_fft\arm_bitreversal2_extra.c</FilePath>
             </File>
             <File>
               <FileName>arm_cfft_f32_extra.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_cfft_f32_extra.c</FilePath>
+              <FilePath>..\long_fft\arm_cfft_f32_extra.c</FilePath>
             </File>
             <File>
               <FileName>arm_cfft_init_f32_extra.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_cfft_init_f32_extra.c</FilePath>
+              <FilePath>..\long_fft\arm_cfft_init_f32_extra.c</FilePath>
             </File>
             <File>
               <FileName>arm_common_tables_extra.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_common_tables_extra.c</FilePath>
+              <FilePath>..\long_fft\arm_common_tables_extra.c</FilePath>
             </File>
             <File>
               <FileName>arm_common_tables_extra.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_common_tables_extra.h</FilePath>
+              <FilePath>..\long_fft\arm_common_tables_extra.h</FilePath>
             </File>
             <File>
               <FileName>arm_const_structs_extra.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_const_structs_extra.c</FilePath>
+              <FilePath>..\long_fft\arm_const_structs_extra.c</FilePath>
             </File>
             <File>
               <FileName>arm_const_structs_extra.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_const_structs_extra.h</FilePath>
+              <FilePath>..\long_fft\arm_const_structs_extra.h</FilePath>
             </File>
             <File>
               <FileName>arm_cortexM7l_math.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_cortexM7l_math.lib</FilePath>
+              <FilePath>..\long_fft\arm_cortexM7l_math.lib</FilePath>
             </File>
             <File>
               <FileName>arm_rfft_fast_f32_extra.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_rfft_fast_f32_extra.c</FilePath>
+              <FilePath>..\long_fft\arm_rfft_fast_f32_extra.c</FilePath>
             </File>
             <File>
               <FileName>arm_rfft_fast_init_f32_extra.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SignalProcess\long_fft\arm_rfft_fast_init_f32_extra.c</FilePath>
+              <FilePath>..\long_fft\arm_rfft_fast_init_f32_extra.c</FilePath>
             </File>
             <File>
               <FileName>extra_ffts.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\SignalProcess\long_fft\extra_ffts.h</FilePath>
+              <FilePath>..\long_fft\extra_ffts.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MyDrive</GroupName>
+          <Files>
+            <File>
+              <FileName>ad9910.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\dds\ad9910.c</FilePath>
+            </File>
+            <File>
+              <FileName>ad9910.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\dds\ad9910.h</FilePath>
+            </File>
+            <File>
+              <FileName>ad9959.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\dds\ad9959.c</FilePath>
+            </File>
+            <File>
+              <FileName>ad9959.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\dds\ad9959.h</FilePath>
+            </File>
+            <File>
+              <FileName>hmi_comm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\comm\hmi_comm.c</FilePath>
+            </File>
+            <File>
+              <FileName>hmi_comm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\comm\hmi_comm.h</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\utils\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\utils\delay.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Task</GroupName>
+          <Files>
+            <File>
+              <FileName>freq_measure.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\measure\freq_measure.c</FilePath>
+            </File>
+            <File>
+              <FileName>freq_measure.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\measure\freq_measure.h</FilePath>
+            </File>
+            <File>
+              <FileName>adc_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\task\adc_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc_task.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\task\adc_task.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>fft</GroupName>
+          <Files>
+            <File>
+              <FileName>fft_analyzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\fft\fft_analyzer.c</FilePath>
+            </File>
+            <File>
+              <FileName>fft_analyzer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\fft\fft_analyzer.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -739,5 +739,14 @@
     </components>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>h743_hal</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

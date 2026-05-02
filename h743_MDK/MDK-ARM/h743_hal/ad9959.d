@@ -1,8 +1,12 @@
-h743_hal/ad9959.o: ..\MyDrive\AD9959.c ..\MyDrive\AD9959.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+h743_hal/ad9959.o: ..\App\dds\ad9959.c ..\App\dds\ad9959.h \
+  ..\Core\Inc\main.h ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
+  ..\Core\Inc\stm32h7xx_hal_conf.h \
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_def.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h743xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
@@ -10,10 +14,6 @@ h743_hal/ad9959.o: ..\MyDrive\AD9959.c ..\MyDrive\AD9959.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
-  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
-  ..\Core\Inc\stm32h7xx_hal_conf.h \
-  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
-  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_def.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
@@ -39,24 +39,7 @@ h743_hal/ad9959.o: ..\MyDrive\AD9959.c ..\MyDrive\AD9959.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
-  ..\Core\Inc\main.h ..\Drivers\CMSIS\DSP\Include\arm_math.h \
+  ..\Drivers\CMSIS\DSP\Include\arm_math.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h ..\MyDrive\bsp_system.h \
-  ..\MyDrive\global_types.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  ..\Drivers\CMSIS\DSP\Include\arm_const_structs.h \
-  ..\Drivers\CMSIS\DSP\Include\arm_math.h \
-  ..\Drivers\CMSIS\DSP\Include\arm_common_tables.h \
-  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  ..\SignalProcess\long_fft\extra_ffts.h \
-  ..\SignalProcess\long_fft\arm_const_structs_extra.h \
-  ..\SignalProcess\long_fft\arm_common_tables_extra.h \
-  ..\SignalProcess\long_fft\extra_ffts.h \
-  ..\SignalProcess\long_fft\arm_common_tables_extra.h ..\Core\Inc\gpio.h \
-  ..\Core\Inc\main.h ..\Core\Inc\usart.h ..\Core\Inc\adc.h \
-  ..\Core\Inc\tim.h ..\Core\Inc\dma.h ..\MyDrive\delay.h \
-  ..\MyDrive\AD9910.h ..\MyDrive\HMI.h ..\MyDrive\sys.h \
-  ..\MyDrive\Get_Freq.h ..\Tasks\Tasks.h ..\SignalProcess\fftana.h \
-  ..\MyDrive\global_types.h
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h ..\App\utils\delay.h

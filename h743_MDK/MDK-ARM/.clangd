@@ -1,6 +1,5 @@
 CompileFlags:
-  CompilationDatabase: >-
-    d:\Desktop_Floder\Git_Project\TI_Cup_SignalProcess\h743_MDK\MDK-ARM\out\h743_hal\h743_hal
+  CompilationDatabase: d:\My_Git\Stm32H743_TI_Cup\h743_MDK\MDK-ARM\out\h743_hal\h743_hal
   Add:
     - "-D_ILP32=1\r\n"
     - "-D_USE_STATIC_INLINE=1\r\n"
@@ -413,33 +412,29 @@ CompileFlags:
     - "-D__thumb2__=1\r\n"
     - "-D__thumb__=1\r\n"
     - '-D__ARMCOMPILER_LIBCXX=1'
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/RTE/_h743_hal
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/RTE/_h743_hal'
     - >-
       -IC:/Users/47306/AppData/Local/arm/packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
     - >-
       -IC:/Users/47306/AppData/Local/arm/packs/Keil/STM32H7xx_DFP/3.1.1/Drivers/CMSIS/Device/ST/STM32H7xx/Include
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../MyDrive'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../App'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../App/fft'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../App/measure'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../App/dds'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../App/task'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../App/comm'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../App/utils'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../SignalProcess/long_fft'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../Core/Inc'
     - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Tasks
+      -ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../Drivers/STM32H7xx_HAL_Driver/Inc
     - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../SignalProcess
+      -ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
     - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../MyDrive
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../SignalProcess/long_fft
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Core/Inc
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/STM32H7xx_HAL_Driver/Inc
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/CMSIS/Device/ST/STM32H7xx/Include
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/CMSIS/Include
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Hardware
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/../Drivers/CMSIS/DSP/Include
-    - >-
-      -ID:/Desktop_Floder/Git_Project/TI_Cup_SignalProcess/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal
+      -ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../Drivers/CMSIS/Device/ST/STM32H7xx/Include
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../Drivers/CMSIS/Include'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../Drivers/CMSIS/DSP/Include'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../SignalProcess'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/../Tasks'
+    - '-ID:/My_Git/Stm32H743_TI_Cup/h743_MDK/MDK-ARM/tmp/h743_hal+h743_hal'

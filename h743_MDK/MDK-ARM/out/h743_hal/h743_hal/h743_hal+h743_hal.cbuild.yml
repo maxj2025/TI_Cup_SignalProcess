@@ -15,10 +15,7 @@ build:
       title: Cortex-M7 Generic User Guide
   dbgconf:
     - file: ../../../.cmsis/h743_hal+h743_hal.dbgconf
-      version: 1.1.1
-      base: ../../../.cmsis/h743_hal+h743_hal.dbgconf.base@1.1.1
-      update: ../../../.cmsis/h743_hal+h743_hal.dbgconf.update@1.1.0
-      status: update suggested
+      version: 1.1.0
   processor:
     endian: little
     fpu: dp
@@ -52,9 +49,10 @@ build:
       - -Wno-documentation
       - -Wno-license-management
       - -Wno-parentheses-equality
+      - -Wno-unused-function
     CPP:
       - -xc++
-      - -std=c++03
+      - -std=c++11
       - -fno-exceptions
       - -fno-rtti
       - -funsigned-char
@@ -73,6 +71,7 @@ build:
       - -Wno-documentation
       - -Wno-license-management
       - -Wno-parentheses-equality
+      - -Wno-unused-function
     Link:
       - --library_type=microlib
       - --map
@@ -92,7 +91,6 @@ build:
     - USE_HAL_DRIVER
     - STM32H743xx
     - ARM_MATH_CM7
-    - __FPU_PRESENT: 1
     - __MICROLIB
     - STM32H743xx
     - _RTE_
@@ -106,12 +104,18 @@ build:
     - ../../../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy
     - ../../../../Drivers/CMSIS/Device/ST/STM32H7xx/Include
     - ../../../../Drivers/CMSIS/Include
-    - ../../../../Hardware
     - ../../../../Drivers/CMSIS/DSP/Include
     - ../../../../SignalProcess
     - ../../../../SignalProcess/long_fft
     - ../../../../MyDrive
     - ../../../../Tasks
+    - ../../../../App
+    - ../../../../App/fft
+    - ../../../../App/measure
+    - ../../../../App/dds
+    - ../../../../App/task
+    - ../../../../App/comm
+    - ../../../../App/utils
     - ../../../RTE/_h743_hal
     - ${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include
     - ${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1/Drivers/CMSIS/Device/ST/STM32H7xx/Include
@@ -154,7 +158,7 @@ build:
           category: doc
           version: 5.6.0
   linker:
-    script: ../../../h743_hal_h743_hal.sct
+    script: ../../../h743_hal/h743_hal.sct
   groups:
     - group: Application/MDK-ARM
       files:
@@ -163,6 +167,8 @@ build:
           misc:
             ASM:
               - -masm=auto
+              - -x
+              - assembler-with-cpp
     - group: Application/User/Core
       files:
         - file: ../../../../Core/Src/main.c
@@ -231,45 +237,39 @@ build:
       files:
         - file: ../../../../Core/Src/system_stm32h7xx.c
           category: sourceC
-    - group: Tasks
+    - group: App
       files:
-        - file: ../../../../Tasks/Tasks.c
+        - file: ../../../../App/app_config.h
+          category: header
+        - file: ../../../../App/app_types.h
+          category: header
+        - file: ../../../../App/fft/fft_analyzer.c
           category: sourceC
-        - file: ../../../../Tasks/Tasks.h
+        - file: ../../../../App/fft/fft_analyzer.h
           category: header
-    - group: SignalProsess
-      files:
-        - file: ../../../../SignalProcess/fftana.c
+        - file: ../../../../App/measure/freq_measure.c
           category: sourceC
-        - file: ../../../../SignalProcess/fftana.h
+        - file: ../../../../App/measure/freq_measure.h
           category: header
-    - group: MyDrive
-      files:
-        - file: ../../../../MyDrive/AD9910.c
+        - file: ../../../../App/dds/ad9910.c
           category: sourceC
-        - file: ../../../../MyDrive/AD9910.h
+        - file: ../../../../App/dds/ad9910.h
           category: header
-        - file: ../../../../MyDrive/AD9959.c
+        - file: ../../../../App/dds/ad9959.c
           category: sourceC
-        - file: ../../../../MyDrive/AD9959.h
+        - file: ../../../../App/dds/ad9959.h
           category: header
-        - file: ../../../../MyDrive/bsp_system.h
-          category: header
-        - file: ../../../../MyDrive/delay.h
-          category: header
-        - file: ../../../../MyDrive/Get_Freq.c
+        - file: ../../../../App/task/adc_task.c
           category: sourceC
-        - file: ../../../../MyDrive/Get_Freq.h
+        - file: ../../../../App/task/adc_task.h
           category: header
-        - file: ../../../../MyDrive/HMI.c
+        - file: ../../../../App/comm/hmi_comm.c
           category: sourceC
-        - file: ../../../../MyDrive/HMI.h
+        - file: ../../../../App/comm/hmi_comm.h
           category: header
-        - file: ../../../../MyDrive/sys.h
-          category: header
-        - file: ../../../../MyDrive/delay.c
+        - file: ../../../../App/utils/delay.c
           category: sourceC
-        - file: ../../../../MyDrive/global_types.h
+        - file: ../../../../App/utils/delay.h
           category: header
     - group: long_fft
       files:

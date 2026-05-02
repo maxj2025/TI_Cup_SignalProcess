@@ -10,7 +10,7 @@ set(DPACK Keil::STM32H7xx_DFP@3.1.1)
 set(DPACK_DIR "${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1")
 set(OUT_DIR "${SOLUTION_ROOT}/out/h743_hal/h743_hal")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(LD_SCRIPT "${SOLUTION_ROOT}/h743_hal_h743_hal.sct")
+set(LD_SCRIPT "${SOLUTION_ROOT}/h743_hal/h743_hal.sct")
 set(LD_SCRIPT_PP ${LD_SCRIPT})
 
 # Processor Options
@@ -49,15 +49,21 @@ target_include_directories(${CONTEXT} PUBLIC
     "${SOLUTION_ROOT}/../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"
     "${SOLUTION_ROOT}/../Drivers/CMSIS/Device/ST/STM32H7xx/Include"
     "${SOLUTION_ROOT}/../Drivers/CMSIS/Include"
-    "${SOLUTION_ROOT}/../Hardware"
     "${SOLUTION_ROOT}/../Drivers/CMSIS/DSP/Include"
+    "${SOLUTION_ROOT}/../SignalProcess"
+    "${SOLUTION_ROOT}/../MyDrive"
+    "${SOLUTION_ROOT}/../Tasks"
   >
   "${SOLUTION_ROOT}/RTE/_h743_hal"
   "${CMSIS_PACK_ROOT}/ARM/CMSIS/5.9.0/CMSIS/Core/Include"
   "${CMSIS_PACK_ROOT}/Keil/STM32H7xx_DFP/3.1.1/Drivers/CMSIS/Device/ST/STM32H7xx/Include"
-  "${SOLUTION_ROOT}/../Tasks"
-  "${SOLUTION_ROOT}/../SignalProcess"
-  "${SOLUTION_ROOT}/../MyDrive"
+  "${SOLUTION_ROOT}/../App"
+  "${SOLUTION_ROOT}/../App/fft"
+  "${SOLUTION_ROOT}/../App/measure"
+  "${SOLUTION_ROOT}/../App/dds"
+  "${SOLUTION_ROOT}/../App/task"
+  "${SOLUTION_ROOT}/../App/comm"
+  "${SOLUTION_ROOT}/../App/utils"
   "${SOLUTION_ROOT}/../SignalProcess/long_fft"
 )
 
@@ -68,7 +74,6 @@ target_compile_definitions(${CONTEXT} PUBLIC
     USE_HAL_DRIVER
     STM32H743xx
     ARM_MATH_CM7
-    __FPU_PRESENT=1
     __MICROLIB
     STM32H743xx
     _RTE_
@@ -105,6 +110,7 @@ target_compile_options(${CONTEXT} PUBLIC
     "SHELL:-Wno-documentation"
     "SHELL:-Wno-license-management"
     "SHELL:-Wno-parentheses-equality"
+    "SHELL:-Wno-unused-function"
   >
 )
 
@@ -130,9 +136,7 @@ target_link_libraries(${CONTEXT} PUBLIC
   Group_Application_User_Core
   Group_Drivers_STM32H7xx_HAL_Driver
   Group_Drivers_CMSIS
-  Group_Tasks
-  Group_SignalProsess
-  Group_MyDrive
+  Group_App
   Group_long_fft
   ARM_CMSIS_CORE_5_6_0
   ${SOLUTION_ROOT}/../SignalProcess/long_fft/arm_cortexM7l_math.lib
